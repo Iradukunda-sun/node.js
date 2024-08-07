@@ -1,0 +1,27 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet 'href='/css/sales.css')
+  title pug
+form(action="#" method='post')
+  h2 AGENT DETAILS
+  table
+    tr
+      td Agent Name:
+      td
+        input#produce_name(type='text' name='produce_name' required='')
+    tr
+      td Email:
+      td
+        input#agentEmail(type='email' name='agentEmail' required='')
+    tr
+      td Phone Number:
+      td
+        input#agentPhone(type='tel' name='agentPhone' required='')
+    tr
+      td Address:
+      td
+        input#agentAddress(type='text' name='agentAddress' required='')
+  button#save_button(type='submit') Save
+  button#cancel_button(type='reset') Cancel

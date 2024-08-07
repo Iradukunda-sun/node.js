@@ -1,56 +1,53 @@
-const express = require('express');
-const app = express();
+// //Dependencies:
+// const express = require('express');
+// const path = require('path');
 
-app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => { // new
-  res.send('Homepage! Hello world.');
-});
+// //Instatiations
+// const app = express();
+// const port = 3000
 
-app.get('/about', (req, res) => { // new
-  res.send('Your not the real heroes');
-});
+// //Configurations
+// //Import routes
 
-app.get("/member", (req, res) => {
-  res.send("These are member details");
-});
 
-app.post("/addmember", (req, res) => {
-  res.send("You have added a member");
-});
-//path parameters
-app.get("/students", (req, res) => {
-  res.send("This is a list of students in june cohort");
-});
-app.get("/students/:name", (req, res) => {
-  res.send("This is " + req.params.name + " a student from the june cohort");
-});
-app.get("/persons", (req, res) => {
-  res.send("This is " + req.params.name + "  from " + req.params.class + " class ");
-});
+// //set the views path
+// //set view engine to pug
+// app.set('view engine', 'pug');//specify the view engine
+// app.set('views', path.join(__dirname,'views')); //specify the views directory
 
-//serving html files
-//get route for the file in the same directory
-app.get("/first", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
-app.get("/quotes", (req, res) => {
-  res.sendFile(__dirname + "/quotes.html");
-});
-app.post("/quotes", (req, res) => {
-  console.log(req.body)
-});
+
+
+// //MIDDLEWARE
+
+// app.use(express.urlencoded({ extended: true }));
+// // Simple request time logger
+// // app.use((req, res, next) => {
+// //   console.log('A new request received at ' + Date.now());
+// //   next();
+// // });
+// // //Simple request time logger for a specific route
+// // app.use('/about', (req, res, next) => {
+// //   console.log('A new request received at ' + Date.now());
+// //   next();
+// //   });
+
+
+
+// //Routes
+// //use routes/use imported routes
+
+// // app.use("/", studyRoutes);
 
 
 
 
-
-//error message
+// //error message
 // app.get("*", (req, res) => {
 //   res.send("error! page does not exist");
 // });
 
 
 
-
-app.listen(3000, () => console.log('listening on port 3000')); // new
+// //Bootstraping a server
+// app.listen(3000, () => console.log('listening on port 3000')); // new
