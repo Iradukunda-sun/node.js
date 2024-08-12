@@ -1,0 +1,36 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel="stylesheet" href="../public/css/crop.css")
+  title node
+  nav
+  ul
+    li
+      a(href='#') Home
+    li
+      a(href='#') About
+    li
+      a(href='#') Contact
+
+  form(action='/enter' method='post')
+  h2 CROP DETAILS
+  table
+    tr
+      td Crop Name:
+      td
+        input#produceName(type='text' name='produceName' required='')
+    tr
+      td Crop Type:
+      td
+        input#produceType(type='text' name='produceType' required='')
+    tr
+      td Quantity
+      td
+        input#myQuatity(type='number' name='myQuantity' required='')
+    tr
+      td Planting Date
+      td
+        input#plantingDate(type='text' name='plantingDate' required='')
+  button#save_button(type='submit') Save
+  button#cancel_button(type='reset') Cancel
