@@ -1,47 +1,24 @@
 doctype html
-head
-  style.
-    table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    }
-    td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    }
-    tr:nth-child(even) {
-    background-color: #dddddd;
-    }
-h2 HTML Table
-table
-  tr
-    th Company
-    th Contact
-    th Country
-  tr
-    td Alfreds Futterkiste
-    td Maria Anders
-    td Germany
-  tr
-    td Centro comercial Moctezuma
-    td Francisco Chang
-    td Mexico
-  tr
-    td Ernst Handel
-    td Roland Mendel
-    td Austria
-  tr
-    td Island Trading
-    td Helen Bennett
-    td UK
-  tr
-    td Laughing Bacchus Winecellars
-    td Yoshi Tannamuri
-    td Canada
-  tr
-    td Magazzini Alimentari Riuniti
-    td Giovanni Rovelli
-    td Italy
-
+html(lang="en")
+  head
+    title Users Page
+    Link(rel="stylesheet" href="/css/all-users.css")     
+  body
+    h1 All Users List
+    table
+      thead
+        tr
+          th  Name
+          
+          th Branch
+          th Role
+      tbody
+        if signins.length 
+        each signin in signins
+          tr
+            td #{signin.theName}
+           
+            td #{signin.branch}
+            td #{signin.role}
+        else 
+          p no users signed up yet

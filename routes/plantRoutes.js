@@ -1,10 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const connectEnsureLogin = require('connect-ensure-login');
+
+//connectEnsureLogin.ensureLoggedIn(),
+
 
 // Import models
 const Crop = require('../models/crop');
+const { connect } = require('mongoose');
 
-router.get("/enter", (req, res) => {
+router.get("/enter",  (req, res) => {
     res.render("crop");
   });
   

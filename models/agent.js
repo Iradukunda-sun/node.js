@@ -13,7 +13,7 @@ const agentSchema = new mongoose.Schema({
     },
     agentPhone: {
         type: Number,
-        trim: true
+        trim: true, 
     },
     agentAddress: {
         type: String,

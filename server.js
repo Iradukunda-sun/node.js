@@ -2,14 +2,24 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const passport = require('passport');
+const expressSession = require('express-session')({
+  secret: "secret",
+  resave: false,
+  saveUninitialized: false,
+})
 
 require("dotenv").config();
 
 //Import models
-//Import routes
-const plantRoutes = require("./routes/plantRoutes")
-const salesRoutes = require("./routes/salesRoutes")
-const studyRoutes = require("./routes/studyRoutes")
+const Signup = require('./models/sign');
+
+const signupRoutes = require("./routes/signupRoutes");
+const loginRoutes = require("./routes/loginRoutes");
+const plantRoutes = require("./routes/plantRoutes");
+const salesRoutes = require("./routes/salesRoutes");
+const studyRoutes = require("./routes/studyRoutes");
+
 //Instatiations
 const app = express();
 const port = 3000;
@@ -46,14 +56,29 @@ app.use(express.static(path.join(__dirname, "public"))); //specify a folder for 
 app.use(express.urlencoded({ extended: true })); //helps to parse data from forms
 app.use(express.json()); //helps to capture data in json format
 
+// added
+// express session configs
+app.use(expressSession);
+app.use(passport.initialize());
+app.use(passport.session());
+
+// passport configs
+passport.use(Signup.createStrategy());
+passport.serializeUser(Signup.serializeUser());
+passport.deserializeUser(Signup.deserializeUser());
+
 
 //Routes
 //use routes/use imported routes
-app.use("/", plantRoutes); // new
 
-app.use("/", salesRoutes); 
+app.use("/", signupRoutes);
+app.use("/", loginRoutes);
+app.use("/", plantRoutes);
+
+app.use("/", salesRoutes);
 
 app.use("/", studyRoutes);
+
 
 
 
