@@ -104,7 +104,7 @@ router.get("/updateUser/:id", async (req, res) => {
   }
 });
 
-// post updated produce
+// post updated users
 router.post("/updateUser", async (req, res) => {
   try {
     await Signup.findOneAndUpdate({ _id: req.query.id }, req.body);
@@ -114,7 +114,7 @@ router.post("/updateUser", async (req, res) => {
   }
 });
 
-// delete Produce
+// delete user
 router.post("/deleteUser", async (req, res) => {
   try {
     await Signup.deleteOne({ _id: req.body.id });

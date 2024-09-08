@@ -11,7 +11,7 @@ const expressSession = require('express-session')({
 
 require("dotenv").config();
 
-//Import models
+//Import routes
 const Signup = require('./models/sign');
 
 const signupRoutes = require("./routes/signupRoutes");
@@ -22,7 +22,7 @@ const studyRoutes = require("./routes/studyRoutes");
 
 //Instatiations
 const app = express();
-const port = 3000;
+const port = 4000;
 
 
 //Configurations

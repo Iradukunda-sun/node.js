@@ -12,6 +12,7 @@ html(lang="en")
           
           th Branch
           th Role
+          th Action
       tbody
         if signins.length 
         each signin in signins
@@ -20,5 +21,9 @@ html(lang="en")
            
             td #{signin.branch}
             td #{signin.role}
+            td 
+              form(method ="post" action = '/deleteUser') 
+                input(type="hidden", placeholder="", name="id", value=signin._id)
+                button#delete_button(type='submit') Delete 
         else 
           p no users signed up yet
